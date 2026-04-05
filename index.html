@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NeuraQua Smart Dam Dashboard</title>
+<title>NEURAQUA Smart River Regeneration System</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap');
   *{box-sizing:border-box;margin:0;padding:0}
@@ -174,7 +174,7 @@
 
   <div class="main">
     <div class="hdr">
-      <div class="brand">NeuraQua <span>Digital Twin Bendungan</span></div>
+      <div class="brand">NEURAQUA <span>Smart River Regeneration System</span></div>
       <select class="loc-sel">
         <option>Bendungan Masuk</option>
         <option>Bendungan Keluar</option>
@@ -207,8 +207,6 @@
     <div class="body">
       <div class="left">
         <div class="twin-view">
-          <svg class="dam-svg" width="420" height="210" viewBox="0 0 420 210">
-            <text x="310" y="130" fill="#00ff9d" font-size="9" font-family="Space Mono">FILTER AKTIF</text>
           </svg>
           <img id="manualImg" class="custom-image" alt="Custom animasi" />
           <model-viewer id="manualModel" class="custom-model" camera-controls auto-rotate exposure="1" shadow-intensity="0.5" ar ar-modes="webxr scene-viewer quick-look" style="background:transparent;" src=""></model-viewer>
@@ -558,12 +556,6 @@ if(twinView){
   });
 }
 setDashboardModel('BENDUNGAN.glb');
-// Contoh pemanggilan programatik:
-// setDashboardImage('path/to/image.jpg');
-// setDashboardModel('path/to/model.glb');
-// chooseDashboardModelFile();
-// setDashboardModelFromFile(file); // file adalah objek File dari input atau drag/drop
-
 if(window.Chart){
   tChart=new Chart(ctx,{
     type:'line',
