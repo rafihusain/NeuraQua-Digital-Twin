@@ -363,8 +363,30 @@
 
           <div class="card">
             <div class="ch">
-              <div class="ct">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+              <div class="ct">                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg>
+                Kondisi Struktur
+              </div>
+              <button class="more">···</button>
+            </div>
+            <div class="sensor-grid">
+              <div class="sg">
+                <div class="sg-lbl">Keretakan</div>
+                <div class="sg-val" id="crackDepthVal" style="color:#ffb347">18%</div>
+                <div class="sg-sub">Kedalaman retak</div>
+                <div class="sg-bar"><div class="sg-fill" id="crackDepthBar" style="width:18%;background:#ffb347"></div></div>
+              </div>
+              <div class="sg">
+                <div class="sg-lbl">Pemulihan</div>
+                <div class="sg-val" id="crackRecoveryVal" style="color:#00ff9d">76%</div>
+                <div class="sg-sub">Persentase perbaikan</div>
+                <div class="sg-bar"><div class="sg-fill" id="crackRecoveryBar" style="width:76%;background:#00ff9d"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="ch">
+              <div class="ct">                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
                 Pengangkut Sampah
               </div>
               <button class="more">···</button>
@@ -631,6 +653,8 @@ function updateAll(){
   const solarEff=rnd(80,95,0);
   const solarLight=rnd(600,1000,0);
   const solarStatus=solarEff>85?'Optimal':'Baik';
+  const crackDepth=rnd(6,28,1);
+  const crackRecovery=rnd(20,96,0);
 
   document.getElementById('phVal').textContent=ph;
   document.getElementById('phBar').style.width=(ph/14*100).toFixed(0)+'%';
@@ -652,6 +676,15 @@ function updateAll(){
 
   document.getElementById('nitratVal').textContent=nitrat;
   document.getElementById('nitratBar').style.width=(nitrat/10*100).toFixed(0)+'%';
+
+  document.getElementById('crackDepthVal').textContent=crackDepth+'%';
+  document.getElementById('crackDepthBar').style.width=crackDepth+'%';
+  document.getElementById('crackDepthVal').style.color=crackDepth>22?'#ff6b6b':crackDepth>15?'#ffb347':'#00ff9d';
+  document.getElementById('crackDepthBar').style.background=crackDepth>22?'#ff6b6b':crackDepth>15?'#ffb347':'#00ff9d';
+  document.getElementById('crackRecoveryVal').textContent=crackRecovery+'%';
+  document.getElementById('crackRecoveryBar').style.width=crackRecovery+'%';
+  document.getElementById('crackRecoveryVal').style.color=crackRecovery<50?'#ff6b6b':'#00ff9d';
+  document.getElementById('crackRecoveryBar').style.background=crackRecovery<50?'#ff6b6b':'#00ff9d';
 
   document.getElementById('flowBig').textContent=flow;
   document.getElementById('huluSpd').textContent=hulu+' m/s';
